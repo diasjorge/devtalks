@@ -2,25 +2,36 @@
 # To run use: https://github.com/fxn/tkn
 
 center <<-EOS
-  Jorge Dias
   #{b "The rise of containers"}
+
+  Jorge Dias
 EOS
 
-section "About me" do
+section "Introduction" do
+  block "salut Bucuresti"
+
   block <<-EOS
     Devops @ Xing / Development & Testing infrastructure
 
+    Blog mrdias.com
+
     Github @diasjorge / Twitter @dias_jorge
   EOS
+
+  block "Containers, Containers, Containers"
 end
 
 section "Virtualization" do
-  block <<-EOS
+  block <<EOS
     Hardware level virtualization
   EOS
 
   block <<-EOS
-    Started at the 60s as a method of logically dividing the system resources provided by mainframe computers
+    Started at the 60s
+
+    Way of running old code on new hardware
+
+    Method to divide system resources
 EOS
 
   block <<-EOS
@@ -39,23 +50,25 @@ EOS
 +--------------------+
   EOS
 
-  block <<-EOS
-Advantages
+  block "Advantages
+"
 
+  block <<-EOS
 Can run legacy stack unmodified
 
 Can mix and match operative systems
 EOS
 
-  block <<-EOS
-Disadvantages
+  block "Disadvantages
+"
 
+  block <<-EOS
 Big performance penalty
 
-Virtualized Application includes application and dependencies but also entire Guest OS
+Virtualized Application includes application
+and dependencies but also entire Guest OS
 EOS
 end
-
 
 section "Containers" do
   block <<-EOS
@@ -86,28 +99,30 @@ EOS
 +--------------------+
   EOS
 
+  block "Advantages"
+
   block <<-EOS
-Advantages
-
-Container includes only application and dependencies
-
-Container runs as an isolated process sharing the kernel with other containers
-
 Full Speed
 
-Better sharing of resources like RAM
+Better sharing of resources like RAM, CPU
+
+Container includes only application
+and dependencies
+
 EOS
 
-  block <<-EOS
-Disadvantages
+  block "Disadvantages"
 
+  block <<-EOS
 Only can run one OS
   EOS
 end
 
 section "Docker introduction" do
   block <<-EOS
-    Docker - An open platform for distributed applications for developers and sysadmins.
+    An open platform for distributed applications
+
+    for developers and sysadmins.
   EOS
 
   block <<-EOS
@@ -115,22 +130,55 @@ section "Docker introduction" do
   EOS
 
   block <<-EOS
-    Run the same app, unchanged, on laptops, data center VMs, and any cloud.
+    Run the same app, #{b "unchanged"},
+
+    on laptops, data center VMs, and any cloud.
   EOS
 
   block <<-EOS
-    Eliminates the friction between development, QA, and production environments.
+    Eliminates the friction between development,
+
+    QA, and production environments.
   EOS
 end
 
 section "Docker for developers" do
+  block "Why is it so popular?
+"
+
+  block "Good user experience
+"
+
   block <<-EOS
-  EOS
+Build any app in any language using any toolchain
+EOS
+
+  block <<EOS
+“Dockerized” apps are completely portable and can run anywhere
+EOS
+
+  block "Easy to compose and integrate different services
+"
 end
 
 section "Docker for operations" do
   block <<-EOS
+Standardized environments
+
+Dev, QA, staging, production
   EOS
+
+  block "
+Flexibility to distribute where things run
+"
+
+  block "
+Better resources utilization
+"
+
+  block "
+Easily scale up and down
+"
 end
 
 section "Challenges" do
