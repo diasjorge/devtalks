@@ -3,14 +3,16 @@
 
 center <<-EOS
   #{b "The rise of containers"}
-
-  Jorge Dias
 EOS
 
 section "Introduction" do
-  block "salut Bucuresti"
+  block <<-EOS
+    salut Bucuresti
+  EOS
 
   block <<-EOS
+    Jorge Dias
+
     Devops @ Xing / Development & Testing infrastructure
 
     Blog mrdias.com
@@ -18,11 +20,14 @@ section "Introduction" do
     Github @diasjorge / Twitter @dias_jorge
   EOS
 
-  block "Containers, Containers, Containers"
+  block <<-EOS
+    Containers, Containers, Containers
+  EOS
+
 end
 
 section "Virtualization" do
-  block <<EOS
+  block <<-EOS
     Hardware level virtualization
   EOS
 
@@ -32,7 +37,7 @@ section "Virtualization" do
     Way of running old code on new hardware
 
     Method to divide system resources
-EOS
+  EOS
 
   block <<-EOS
 +---------+----------+
@@ -50,24 +55,26 @@ EOS
 +--------------------+
   EOS
 
-  block "Advantages
-"
+  block <<-EOS
+    Advantages
+  EOS
 
   block <<-EOS
-Can run legacy stack unmodified
+    Can run legacy stack unmodified
 
-Can mix and match operative systems
-EOS
-
-  block "Disadvantages
-"
+    Can mix and match operative systems
+  EOS
 
   block <<-EOS
-Big performance penalty
+    Disadvantages
+  EOS
 
-Virtualized Application includes application
-and dependencies but also entire Guest OS
-EOS
+  block <<-EOS
+    Big performance penalty
+
+    Virtualized Application includes application
+    and dependencies but also entire Guest OS
+  EOS
 end
 
 section "Containers" do
@@ -83,7 +90,7 @@ section "Containers" do
     Open-VZ
 
     LXC
-EOS
+  EOS
 
   block <<-EOS
 +---------+----------+
@@ -99,22 +106,25 @@ EOS
 +--------------------+
   EOS
 
-  block "Advantages"
+  block <<-EOS
+    Advantages
+  EOS
 
   block <<-EOS
-Full Speed
+    Full Speed
 
-Better sharing of resources like RAM, CPU
+    Better sharing of resources like RAM, CPU
 
-Container includes only application
-and dependencies
-
-EOS
-
-  block "Disadvantages"
+    Container includes only application
+    and dependencies
+  EOS
 
   block <<-EOS
-Only can run one OS
+    Disadvantages
+  EOS
+
+  block <<-EOS
+    Only can run one OS
   EOS
 end
 
@@ -130,7 +140,7 @@ section "Docker introduction" do
   EOS
 
   block <<-EOS
-    Run the same app, #{b "unchanged"},
+    Run the same app, #{b "UNCHANGED"},
 
     on laptops, data center VMs, and any cloud.
   EOS
@@ -143,45 +153,78 @@ section "Docker introduction" do
 end
 
 section "Docker for developers" do
-  block "Why is it so popular?
-"
-
-  block "Good user experience
-"
+  block <<-EOS
+    Why is it so popular?
+  EOS
 
   block <<-EOS
-Build any app in any language using any toolchain
-EOS
+    Good user experience
+  EOS
 
-  block <<EOS
-“Dockerized” apps are completely portable and can run anywhere
-EOS
+  block <<-EOS
+    Build any app in any language using any toolchain
+  EOS
 
-  block "Easy to compose and integrate different services
-"
+  block <<-EOS
+    “Dockerized” apps are completely portable and can run anywhere
+  EOS
+
+  block <<-EOS
+    Easy to compose and integrate different services
+  EOS
+
+  block <<-EOS
+    The distribution model - apt for apps
+  EOS
 end
 
 section "Docker for operations" do
   block <<-EOS
-Standardized environments
+    Standardized environments
 
-Dev, QA, staging, production
+    Dev, QA, staging, production
   EOS
 
-  block "
-Flexibility to distribute where things run
-"
+  block <<-EOS
+    Flexibility to distribute where things run
+  EOS
 
-  block "
-Better resources utilization
-"
+  block <<-EOS
+    Better resources utilization
+  EOS
 
-  block "
-Easily scale up and down
-"
+  block <<-EOS
+    Easily scale up and down
+  EOS
+end
+
+section "Dockerizing my apps" do
+  block <<-EOS
+    What should I do?
+  EOS
+
+  block <<-EOS
+    The Twelve-Factor app
+  EOS
+
+  block <<-EOS
+    Store config in the environment
+
+    Treat backing services as attached resources
+
+    Execute the app as one or more stateless processes
+
+    Maximize robustness with fast startup and graceful shutdown
+
+    Treat logs as event streams
+  EOS
 end
 
 section "Challenges" do
+  block <<-EOS
+    Service discovery and registration - Where are things runnnig
+  EOS
+
   block <<-EOS
     Security - How we isolate containers from each other
   EOS
@@ -201,6 +244,11 @@ end
 section "Booting demo" do
   #cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
   # docker --rm run ubuntu echo Hello Bucharest
+end
+
+# To Keep?
+section "Discovery demo" do
+
 end
 
 section "That's all, thanks!" do
