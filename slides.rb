@@ -39,19 +39,19 @@ section "Virtualization" do
   EOS
 
   block <<-EOS
-+---------+----------+
-|  App A  |  App B   |
-+---------+----------+
-|Bins/Libs|Bins/Libs |
-+---------+----------+
-|Guest OS | Guest OS |
-+---------+----------+
-|     Hypervisor     |
-+--------------------+
-|      Host OS       |
-+--------------------+
-|       Server       |
-+--------------------+
++-----------+-----------+
+|   App A   |   App B   |
++-----------+-----------+
+| Bins/Libs | Bins/Libs |
++-----------+-----------+
+| Guest OS  | Guest OS  |
++-----------+-----------+
+|      Hypervisor       |
++-----------------------+
+|        Host OS        |
++-----------------------+
+|        Server         |
++-----------------------+
   EOS
 
   block <<-EOS
@@ -60,7 +60,9 @@ section "Virtualization" do
 
   block <<-EOS
     Can run legacy stack unmodified
+  EOS
 
+  block <<-EOS
     Can mix and match operative systems
   EOS
 
@@ -70,10 +72,13 @@ section "Virtualization" do
 
   block <<-EOS
     Big performance penalty
-
-    Virtualized Application includes application
-    and dependencies but also entire Guest OS
   EOS
+
+  block <<-EOS
+    Virtual Machine includes application,
+
+    dependencies and Guest OS
+EOS
 end
 
 section "Containers" do
@@ -92,18 +97,35 @@ section "Containers" do
   EOS
 
   block <<-EOS
-+---------+----------+
-|  App A  |  App B   |
-+---------+----------+
-|Bins/Libs|Bins/Libs |
-+---------+----------+
-|   Docker Engine    |
-+--------------------+
-|      Host OS       |
-+--------------------+
-|       Server       |
-+--------------------+
++-----------+-----------+
+|   App A   |   App B   |
++-----------+-----------+
+| Bins/Libs | Bins/Libs |
++-----------+-----------+
+|     Docker Engine     |
++-----------------------+
+|        Host OS        |
++-----------------------+
+|        Server         |
++-----------------------+
   EOS
+
+  block <<-EOS
+      Virtualization                    Containers
++-----------+-----------+       +-----------+-----------+
+|   App A   |  App B    |       |   App A   |   App B   |
++-----------+-----------+       +-----------+-----------+
+| Bins/Libs | Bins/Libs |       | Bins/Libs | Bins/Libs |
++-----------+-----------+       +-----------+-----------+
+| Guest OS  | Guest OS  |       |     Docker Engine     |
++-----------+-----------+       +-----------------------+
+|      Hypervisor       |       |        Host OS        |
++-----------------------+       +-----------------------+
+|        Host OS        |       |        Server         |
++-----------------------+       +-----------------------+
+|        Server         |
++-----------------------+
+EOS
 
   block <<-EOS
     Advantages
@@ -111,10 +133,15 @@ section "Containers" do
 
   block <<-EOS
     Full Speed
+  EOS
 
+  block <<-EOS
     Better sharing of resources like RAM, CPU
+  EOS
 
+  block <<-EOS
     Container includes only application
+
     and dependencies
   EOS
 
@@ -124,14 +151,16 @@ section "Containers" do
 
   block <<-EOS
     Only can run one OS
+
+    (But you can mix linux distributions)
   EOS
 end
 
 # To Keep?
-section "Booting demo" do
-  # cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
-  # docker --rm run ubuntu echo Hello Bucharest
-end
+# section "Booting demo" do
+#   # cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
+#   # docker --rm run ubuntu echo Hello Bucharest
+# end
 
 section "Docker introduction" do
   block <<-EOS
@@ -169,6 +198,14 @@ section "Docker for developers" do
   block <<-EOS
     Build any app in any language using any toolchain
   EOS
+
+  block <<-EOS
+    Forget installing and compiling libraries locally
+EOS
+
+  block <<-EOS
+    Easy to use exact versions of external services
+EOS
 
   block <<-EOS
     Dockerized apps are completely portable and can run anywhere
@@ -241,19 +278,27 @@ end
 
 section "Challenges" do
   block <<-EOS
-    Service discovery and registration - Where are things running
+    Service discovery and registration
+
+    Where are things running?
   EOS
 
   block <<-EOS
-    Security - How we isolate containers from each other
+    Security
+
+    How do we isolate containers from each other?
   EOS
 
   block <<-EOS
-    Network virtualization - How containers talk to each other
+    Network virtualization
+
+    How do containers talk to each other?
   EOS
 
   block <<-EOS
-    Persistence - How to store your data
+    Persistence
+
+    How do we store data?
   EOS
 end
 
@@ -268,7 +313,20 @@ section  "Service discovery demo" do
 +-------+     +------+     +-----------+
 |Haproxy|---->|Consul|<----|Registrator|
 +-------+     +------+     +-----------+
+                |  |
+           _____|  |____
+          |             |
+      +-------+      +-----+
+      |Sinatra|      |Redis|
+      +-------+      +-----+
+
+
+
 EOS
+
+  center <<-EOS
+    Show time!
+  EOS
 end
 
 section "That's all, thanks!" do
