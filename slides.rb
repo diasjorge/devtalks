@@ -23,7 +23,6 @@ section "Introduction" do
   block <<-EOS
     Containers, Containers, Containers
   EOS
-
 end
 
 section "Virtualization" do
@@ -47,7 +46,7 @@ section "Virtualization" do
 +---------+----------+
 |Guest OS | Guest OS |
 +---------+----------+
-|    Hypservisor     |
+|     Hypervisor     |
 +--------------------+
 |      Host OS       |
 +--------------------+
@@ -128,6 +127,12 @@ section "Containers" do
   EOS
 end
 
+# To Keep?
+section "Booting demo" do
+  # cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
+  # docker --rm run ubuntu echo Hello Bucharest
+end
+
 section "Docker introduction" do
   block <<-EOS
     An open platform for distributed applications
@@ -166,7 +171,7 @@ section "Docker for developers" do
   EOS
 
   block <<-EOS
-    “Dockerized” apps are completely portable and can run anywhere
+    Dockerized apps are completely portable and can run anywhere
   EOS
 
   block <<-EOS
@@ -208,21 +213,35 @@ section "Dockerizing my apps" do
   EOS
 
   block <<-EOS
-    Store config in the environment
+    Store configuration in the environment
+  EOS
 
+  block <<-EOS
     Treat backing services as attached resources
+  EOS
 
+  block <<-EOS
     Execute the app as one or more stateless processes
+  EOS
 
-    Maximize robustness with fast startup and graceful shutdown
+  block <<-EOS
+    Store config in the environment
+  EOS
 
+  block <<-EOS
+    Maximize robustness with fast startup
+
+    and graceful shutdown
+  EOS
+
+  block <<-EOS
     Treat logs as event streams
   EOS
 end
 
 section "Challenges" do
   block <<-EOS
-    Service discovery and registration - Where are things runnnig
+    Service discovery and registration - Where are things running
   EOS
 
   block <<-EOS
@@ -238,17 +257,18 @@ section "Challenges" do
   EOS
 end
 
-# INfo:   https://www.joyent.com/developers/videos/docker-and-the-future-of-containers-in-production
-
-# To Keep?
-section "Booting demo" do
-  #cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
-  # docker --rm run ubuntu echo Hello Bucharest
-end
-
-# To Keep?
-section "Discovery demo" do
-
+section  "Service discovery demo" do
+  block  <<-EOS
+                             +------+
+                             |Docker|
+                             |events|
+                             +------+
+                                 |
+                                 v
++-------+     +------+     +-----------+
+|Haproxy|---->|Consul|<----|Registrator|
++-------+     +------+     +-----------+
+EOS
 end
 
 section "That's all, thanks!" do
