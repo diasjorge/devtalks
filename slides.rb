@@ -3,6 +3,8 @@
 
 center <<-EOS
   #{b "The rise of containers"}
+
+  Jorge Dias
 EOS
 
 section "Introduction" do
@@ -11,17 +13,15 @@ section "Introduction" do
   EOS
 
   block <<-EOS
-    Jorge Dias
+    Devops @ XING
 
-    Devops @ Xing / Development & Testing infrastructure
+    mrdias.com
 
-    Blog mrdias.com
-
-    Github @diasjorge / Twitter @dias_jorge
+    @dias_jorge
   EOS
 
   block <<-EOS
-    Containers, Containers, Containers
+    Containers
   EOS
 end
 
@@ -39,19 +39,19 @@ section "Virtualization" do
   EOS
 
   block <<-EOS
-+-----------+-----------+
-|   App A   |   App B   |
-+-----------+-----------+
-| Bins/Libs | Bins/Libs |
-+-----------+-----------+
-| Guest OS  | Guest OS  |
-+-----------+-----------+
-|      Hypervisor       |
-+-----------------------+
-|        Host OS        |
-+-----------------------+
-|        Server         |
-+-----------------------+
+    +-----------+-----------+
+    |   App A   |   App B   |
+    +-----------+-----------+
+    | Bins/Libs | Bins/Libs |
+    +-----------+-----------+
+    | Guest OS  | Guest OS  |
+    +-----------+-----------+
+    |      Hypervisor       |
+    +-----------------------+
+    |        Host OS        |
+    +-----------------------+
+    |        Server         |
+    +-----------------------+
   EOS
 
   block <<-EOS
@@ -71,7 +71,7 @@ section "Virtualization" do
   EOS
 
   block <<-EOS
-    Big performance penalty
+    Big performance impact
   EOS
 
   block <<-EOS
@@ -97,34 +97,34 @@ section "Containers" do
   EOS
 
   block <<-EOS
-+-----------+-----------+
-|   App A   |   App B   |
-+-----------+-----------+
-| Bins/Libs | Bins/Libs |
-+-----------+-----------+
-|     Docker Engine     |
-+-----------------------+
-|        Host OS        |
-+-----------------------+
-|        Server         |
-+-----------------------+
+    +-----------+-----------+
+    |   App A   |   App B   |
+    +-----------+-----------+
+    | Bins/Libs | Bins/Libs |
+    +-----------+-----------+
+    |     Docker Engine     |
+    +-----------------------+
+    |        Host OS        |
+    +-----------------------+
+    |        Server         |
+    +-----------------------+
   EOS
 
   block <<-EOS
-        Virtualization                    Containers
-  +-----------+-----------+       +-----------+-----------+
-  |   App A   |  App B    |       |   App A   |   App B   |
-  +-----------+-----------+       +-----------+-----------+
-  | Bins/Libs | Bins/Libs |       | Bins/Libs | Bins/Libs |
-  +-----------+-----------+       +-----------+-----------+
-  | Guest OS  | Guest OS  |       |     Docker Engine     |
-  +-----------+-----------+       +-----------------------+
-  |      Hypervisor       |       |        Host OS        |
-  +-----------------------+       +-----------------------+
-  |        Host OS        |       |        Server         |
-  +-----------------------+       +-----------------------+
-  |        Server         |
-  +-----------------------+
+          Virtualization               Containers
+    +-----------+-----------+ +-----------+-----------+
+    |   App A   |   App B   | |   App A   |   App B   |
+    +-----------+-----------+ +-----------+-----------+
+    | Bins/Libs | Bins/Libs | | Bins/Libs | Bins/Libs |
+    +-----------+-----------+ +-----------+-----------+
+    | Guest OS  | Guest OS  | |     Docker Engine     |
+    +-----------+-----------+ +-----------------------+
+    |      Hypervisor       | |        Host OS        |
+    +-----------------------+ +-----------------------+
+    |        Host OS        | |        Server         |
+    +-----------------------+ +-----------------------+
+    |        Server         |
+    +-----------------------+
   EOS
 
   block <<-EOS
@@ -152,15 +152,9 @@ section "Containers" do
   block <<-EOS
     Only can run one OS
 
-    (But you can mix linux distributions)
+    (But you can mix Linux distributions)
   EOS
 end
-
-# To Keep?
-# section "Booting demo" do
-#   # cd demo-boot; vagrant up && vagrant ssh -c 'echo Hello Bucharest'
-#   # docker --rm run ubuntu echo Hello Bucharest
-# end
 
 section "Docker introduction" do
   block <<-EOS
@@ -170,7 +164,9 @@ section "Docker introduction" do
   EOS
 
   block <<-EOS
-    Docker enables apps to be quickly assembled from components
+    Docker enables apps to be quickly
+
+    assembled from components
   EOS
 
   block <<-EOS
@@ -196,27 +192,39 @@ section "Docker for developers" do
   EOS
 
   block <<-EOS
-    Build any app in any language using any toolchain
+    Build any app in any language
+
+    using any toolchain
   EOS
 
   block <<-EOS
-    Forget installing and compiling libraries locally
+    Forget installing and compiling
+
+    libraries locally
   EOS
 
   block <<-EOS
-    Easy to use exact versions of external services
+    Easy to use exact versions
+
+    of external services
   EOS
 
   block <<-EOS
-    Dockerized apps are completely portable and can run anywhere
+    Dockerized apps are completely portable
+
+    and can run anywhere
   EOS
 
   block <<-EOS
-    Easy to compose and integrate different services
+    Easy to compose and integrate
+
+    different services
   EOS
 
   block <<-EOS
-    The distribution model - apt for apps
+    The distribution model
+
+    Apt for applications
   EOS
 end
 
@@ -228,7 +236,9 @@ section "Docker for operations" do
   EOS
 
   block <<-EOS
-    Flexibility to distribute where things run
+    Flexibility to distribute
+
+    where things run
   EOS
 
   block <<-EOS
@@ -254,11 +264,15 @@ section "Dockerizing my apps" do
   EOS
 
   block <<-EOS
-    Treat backing services as attached resources
+    Treat backing services
+
+    as attached resources
   EOS
 
   block <<-EOS
-    Execute the app as one or more stateless processes
+    Execute the app as one or more
+
+    stateless processes
   EOS
 
   block <<-EOS
@@ -298,25 +312,22 @@ section "Challenges" do
   EOS
 end
 
-section  "Service discovery demo" do
-  block  <<-EOS
-                             +------+
-                             |Docker|
-                             |events|
-                             +------+
-                                 |
-                                 v
-+-------+     +------+     +-----------+
-|Haproxy|---->|Consul|<----|Registrator|
-+-------+     +------+     +-----------+
-                |  |
-           _____|  |____
-          |             |
-      +-------+      +-----+
-      |Sinatra|      |Redis|
-      +-------+      +-----+
-
-
+section "Service discovery demo" do
+  block <<-EOS
+                    +---+
+                    |App|
+                    +---+
+                      |
+                      V
+    +-------+     +------+     +-----------+
+    |Haproxy|---->|Consul|<----|Registrator|
+    +-------+     +------+     +-----------+
+                                      |
+                                      V
+                                  +------+
+                                  |Docker|
+                                  |events|
+                                  +------+
   EOS
 
   center <<-EOS
