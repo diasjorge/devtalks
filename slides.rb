@@ -78,7 +78,7 @@ section "Virtualization" do
     Virtual Machine includes application,
 
     dependencies and Guest OS
-EOS
+  EOS
 end
 
 section "Containers" do
@@ -111,21 +111,21 @@ section "Containers" do
   EOS
 
   block <<-EOS
-      Virtualization                    Containers
-+-----------+-----------+       +-----------+-----------+
-|   App A   |  App B    |       |   App A   |   App B   |
-+-----------+-----------+       +-----------+-----------+
-| Bins/Libs | Bins/Libs |       | Bins/Libs | Bins/Libs |
-+-----------+-----------+       +-----------+-----------+
-| Guest OS  | Guest OS  |       |     Docker Engine     |
-+-----------+-----------+       +-----------------------+
-|      Hypervisor       |       |        Host OS        |
-+-----------------------+       +-----------------------+
-|        Host OS        |       |        Server         |
-+-----------------------+       +-----------------------+
-|        Server         |
-+-----------------------+
-EOS
+        Virtualization                    Containers
+  +-----------+-----------+       +-----------+-----------+
+  |   App A   |  App B    |       |   App A   |   App B   |
+  +-----------+-----------+       +-----------+-----------+
+  | Bins/Libs | Bins/Libs |       | Bins/Libs | Bins/Libs |
+  +-----------+-----------+       +-----------+-----------+
+  | Guest OS  | Guest OS  |       |     Docker Engine     |
+  +-----------+-----------+       +-----------------------+
+  |      Hypervisor       |       |        Host OS        |
+  +-----------------------+       +-----------------------+
+  |        Host OS        |       |        Server         |
+  +-----------------------+       +-----------------------+
+  |        Server         |
+  +-----------------------+
+  EOS
 
   block <<-EOS
     Advantages
@@ -201,11 +201,11 @@ section "Docker for developers" do
 
   block <<-EOS
     Forget installing and compiling libraries locally
-EOS
+  EOS
 
   block <<-EOS
     Easy to use exact versions of external services
-EOS
+  EOS
 
   block <<-EOS
     Dockerized apps are completely portable and can run anywhere
@@ -262,10 +262,6 @@ section "Dockerizing my apps" do
   EOS
 
   block <<-EOS
-    Store config in the environment
-  EOS
-
-  block <<-EOS
     Maximize robustness with fast startup
 
     and graceful shutdown
@@ -284,13 +280,7 @@ section "Challenges" do
   EOS
 
   block <<-EOS
-    Security
-
-    How do we isolate containers from each other?
-  EOS
-
-  block <<-EOS
-    Network virtualization
+    Networking
 
     How do containers talk to each other?
   EOS
@@ -299,6 +289,12 @@ section "Challenges" do
     Persistence
 
     How do we store data?
+  EOS
+
+  block <<-EOS
+    Security
+
+    How do we isolate containers from each other?
   EOS
 end
 
@@ -321,8 +317,7 @@ section  "Service discovery demo" do
       +-------+      +-----+
 
 
-
-EOS
+  EOS
 
   center <<-EOS
     Show time!
