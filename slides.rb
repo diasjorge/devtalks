@@ -13,7 +13,7 @@ section "Introduction" do
   EOS
 
   block <<-EOS
-    Devops @ XING
+    Devops Enginner @ XING
 
     mrdias.com
 
@@ -111,7 +111,7 @@ section "Containers" do
   EOS
 
   block <<-EOS
-          Virtualization               Containers
+          Virtualization              Containers
     +-----------+-----------+ +-----------+-----------+
     |   App A   |   App B   | |   App A   |   App B   |
     +-----------+-----------+ +-----------+-----------+
