@@ -9,11 +9,7 @@ EOS
 
 section "Introduction" do
   block <<-EOS
-    salut Bucuresti
-  EOS
-
-  block <<-EOS
-    Devops Enginner @ XING
+    Devops Enginner @ Schibsted
 
     mrdias.com
 
@@ -336,4 +332,9 @@ section "Service discovery demo" do
 end
 
 section "That's all, thanks!" do
+  block <<-EOS
+    We're hiring!
+
+    jorge.dias@schibsted.com
+  EOS
 end
